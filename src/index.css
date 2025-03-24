@@ -23,8 +23,17 @@ body {
   margin: 0;
   background: radial-gradient(125% 125% at 50% 10%, #000 40%, rgb(41, 4, 146) 100%);
   background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
   min-height: 100vh;
+  min-height: -webkit-fill-available; /* For iOS Safari */
   font-family: 'Roboto', sans-serif;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* For iOS Safari */
+html {
+  height: -webkit-fill-available;
 }
 
 
