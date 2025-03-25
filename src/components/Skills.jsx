@@ -61,16 +61,9 @@ const Skills = () => {
     "Documentation",
   ];
 
-  // Styles for section titles
-  const titleStyle = `
-    text-4xl font-bold text-center
-    bg-gradient-to-r from-blue-400 to-indigo-300
-    inline-block text-transparent bg-clip-text
-  `;
-
   const subtitleStyle = `
     text-2xl font-bold text-center mt-10 mb-2
-    bg-gradient-to-r from-blue-400 to-indigo-300
+    bg-gradient-to-r from-blue-400 to-green-300 
     inline-block text-transparent bg-clip-text
   `;
 
@@ -80,20 +73,20 @@ const Skills = () => {
     inline-block text-transparent bg-clip-text
   `;
 
+  const skillItemStyle = `
+    px-2 py-1 rounded-lg text-xs
+    sm:px-4 sm:text-sm
+    bg-gradient-to-r from-blue-600/20 to-indigo-400/20
+    text-white/90
+    transition-all duration-300
+    hover:text-white
+  `;
+
   // Helper function to render skill items
   const renderSkillItems = (skills) => (
-    <div className="flex flex-wrap justify-center mt-2 mb-4 gap-4 w-full">
+    <div className="flex flex-wrap justify-center mt-2 mb-4 gap-2 w-full max-w-4xl mx-auto">
       {skills.map((skill) => (
-        <span
-          key={skill}
-          className="
-            px-4 py-1 rounded-lg text-sm
-            bg-gradient-to-r from-blue-600/20 to-indigo-400/20
-            text-white/90
-            transition-all duration-300
-            hover:text-white
-          "
-        >
+        <span key={skill} className={skillItemStyle}>
           {skill}
         </span>
       ))}
@@ -101,11 +94,8 @@ const Skills = () => {
   );
 
   return (
-    <section
-      id="skills"
-      className="min-h-screen flex flex-col justify-center items-center py-20 px-20 sm:px-32 md:px-40 lg:px-52 text-white w-full"
-    >
-      <h2 className={titleStyle}>Skills</h2>
+    <section id="skills" className="section-style">
+      <h2 className="section-title-style">Skills</h2>
 
       <h3 className={subtitleStyle}>Development</h3>
       <h4 className={categoryStyle}>Frontend Languages & Frameworks</h4>

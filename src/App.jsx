@@ -25,16 +25,35 @@ const App = () => {
   return (
     <div className="absolute inset-0 h-full w-full items-center">
       <Hero />
+      <div className="my-20" />
       <Experience />
+      <div className="my-20" />
       <Skills />
+      <div className="my-20" />
       <Projects />
+      <div className="my-20" />
       <About />
+      <div className="my-20" />
       <Contact />
 
       {showButton && (
         <a
           href="#"
-          className="fixed bottom-4 sm:bottom-6 md:bottom-8 lg:bottom-10 right-4 sm:right-6 md:right-8 lg:right-10 p-2 sm:p-3 md:p-4 bg-gradient-to-r from-blue-600 to-indigo-400 text-white font-semibold rounded-full shadow-md hover:from-indigo-400 hover:to-blue-600 transition-all duration-300"
+          className="
+            fixed
+            bottom-4 right-4
+            sm:bottom-6 sm:right-6
+            md:bottom-8 md:right-8 
+            lg:bottom-10 lg:right-10
+            p-2 sm:p-3 md:p-4
+            bg-gradient-to-r from-green-600 to-indigo-600
+            text-white
+            font-semibold
+            rounded-full
+            shadow-md
+            hover:from-indigo-400 hover:to-blue-600
+            transition-all duration-300
+          "
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"

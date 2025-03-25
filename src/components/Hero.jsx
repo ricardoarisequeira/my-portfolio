@@ -20,7 +20,7 @@ const Hero = () => {
           sm:text-6xl sm:mb-3
           md:text-7xl md:mb-4
           lg:text-8xl
-          bg-gradient-to-r from-blue-600 via-green-500 to-indigo-400 
+          bg-gradient-to-r from-blue-400 to-green-300
           inline-block text-transparent bg-clip-text
         "
       >

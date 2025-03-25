@@ -60,3 +60,13 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+.section-title-style {
+  @apply text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-center
+    bg-gradient-to-r from-blue-400 to-green-300 
+    inline-block text-transparent bg-clip-text;
+}
+
+.section-style {
+  @apply min-h-screen flex flex-col justify-center items-center py-10 px-4 sm:py-20 sm:px-32 md:px-40 lg:px-52 text-white w-full;
+}
