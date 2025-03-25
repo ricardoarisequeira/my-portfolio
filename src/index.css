@@ -10,8 +10,6 @@
   font-weight: 400;
 
   color-scheme: light dark;
-  color: rgba(255, 255, 255, 0.87);
-  background-color: #FFFFFF;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -25,12 +23,9 @@ body {
   background-attachment: fixed;
   min-height: 100vh;
   font-family: 'Roboto', sans-serif;
-}
 
-@media (max-width: 768px) {
-  body {
-    background: radial-gradient(125% 125% at 50% 10%, #000 50%, rgb(41, 4, 146) 100%);
-    background-attachment: fixed;
+  @supports (-webkit-touch-callout: inherit) {
+    background-attachment: scroll;
   }
 }
 

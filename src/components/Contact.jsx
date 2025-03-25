@@ -8,14 +8,8 @@ const Contact = () => {
       <p className="mt-4">
         Feel free to reach out for collaborations or just a chat!
       </p>
-      <a
-        href="mailto:your.email@example.com"
-        className="mt-6 px-6 py-3 bg-orange-500 text-white font-semibold rounded-lg shadow-md hover:bg-orange-600"
-      >
-        Contact Me
-      </a>
 
-      <div className="flex flex-row gap-4 items-center">
+      <div className="flex flex-row gap-4 items-center mt-8">
         <a href="mailto:ricarisequeira@gmail.com">
           <span class="[&>svg]:h-8 [&>svg]:w-8">
             <svg
