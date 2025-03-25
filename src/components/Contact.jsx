@@ -4,10 +4,15 @@ const Contact = () => {
       id="contact"
       className="min-h-screen flex flex-col justify-center items-center py-20  text-white px-6 text-center w-full"
     >
-      <h2 className="text-3xl font-bold">Get In Touch</h2>
+      <h2 className="section-title-style">Get In Touch</h2>
       <p className="mt-4">
-        Feel free to reach out for collaborations or just a chat!
+        I’m always open to new opportunities and collaborations. Feel free to
+        reach out!
       </p>
+
+      <p className="mt-4">ricarisequeira@gmail.com</p>
+
+      <p className="mt-4">Currently in Lisbon, Portugal. Open to relocating.</p>
 
       <div className="flex flex-row gap-4 items-center mt-8">
         <a href="mailto:ricarisequeira@gmail.com">
