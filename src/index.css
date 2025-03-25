@@ -19,14 +19,11 @@
 
 body {
   margin: 0;
-  background: radial-gradient(125% 125% at 50% 10%, #000 40%, rgb(41, 4, 146) 100%);
+  background: radial-gradient(at center top, #000 40%, rgb(41, 4, 146) 100%);
   background-attachment: fixed;
-  min-height: 100vh;
   font-family: 'Roboto', sans-serif;
-
-  @supports (-webkit-touch-callout: inherit) {
-    background-attachment: scroll;
-  }
+  min-height: 100vh;
+  min-height: calc(var(--vh, 1vh) * 100);
 }
 
 
