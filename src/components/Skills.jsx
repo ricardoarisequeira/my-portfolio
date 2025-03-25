@@ -1,24 +1,137 @@
 const Skills = () => {
+  // Frontend development skills
+  const frontendLanguagesAndFrameworks = [
+    "Flutter",
+    "Dart",
+    "HTML",
+    "CSS",
+    "Vue.js",
+  ];
+
+  const frontendTools = [
+    "Postman",
+    "Google Analytics",
+    "MongoDB",
+    "MySQL",
+    "Firebase",
+  ];
+
+  const frontendOthers = [
+    "Rest APIs",
+    "Responsive Design",
+    "User Experience (UX)",
+    "API Development",
+    "Microservices Architecture",
+    "Data Modeling",
+    "Problem-Solving",
+  ];
+
+  // Backend development skills
+  const backendLanguages = ["Go", "Kotlin", "TypeScript"];
+
+  // DevOps and cloud skills
+  const devopsTools = [
+    "Jenkins",
+    "Kubernetes",
+    "Docker",
+    "Terraform",
+    "GitHub",
+  ];
+
+  const devopsPlatforms = ["Azure", "Azure DevOps", "AWS", "Google Cloud"];
+
+  const devopsOthers = ["CI/CD", "Security Practices"];
+
+  // Monitoring and analytics skills
+  const monitoringSkills = ["Datadog", "Grafana", "Performance Optimization"];
+
+  // Project management skills
+  const managementSkills = [
+    "Agile Methodologies",
+    "Team Leadership",
+    "Project Management",
+    "Time Management",
+  ];
+
+  // Communication skills
+  const communicationSkills = [
+    "Portuguese",
+    "English",
+    "Technical Writing",
+    "Documentation",
+  ];
+
+  // Styles for section titles
+  const titleStyle = `
+    text-4xl font-bold text-center
+    bg-gradient-to-r from-blue-400 to-indigo-300
+    inline-block text-transparent bg-clip-text
+  `;
+
+  const subtitleStyle = `
+    text-2xl font-bold text-center mt-10 mb-2
+    bg-gradient-to-r from-blue-400 to-indigo-300
+    inline-block text-transparent bg-clip-text
+  `;
+
+  const categoryStyle = `
+    text-lg font-semibold text-center 
+    bg-gradient-to-r from-blue-200 to-indigo-100
+    inline-block text-transparent bg-clip-text
+  `;
+
+  // Helper function to render skill items
+  const renderSkillItems = (skills) => (
+    <div className="flex flex-wrap justify-center mt-2 mb-4 gap-4 w-full">
+      {skills.map((skill) => (
+        <span
+          key={skill}
+          className="
+            px-4 py-1 rounded-lg text-sm
+            bg-gradient-to-r from-blue-600/20 to-indigo-400/20
+            text-white/90
+            transition-all duration-300
+            hover:text-white
+          "
+        >
+          {skill}
+        </span>
+      ))}
+    </div>
+  );
+
   return (
     <section
       id="skills"
-      className="min-h-screen flex flex-col justify-center items-center py-20 px-6 text-white w-full"
+      className="min-h-screen flex flex-col justify-center items-center py-20 px-20 sm:px-32 md:px-40 lg:px-52 text-white w-full"
     >
-      <h2 className="text-3xl font-bold text-center">Skills</h2>
-      <div className="flex flex-wrap justify-center mt-6 gap-4 w-full">
-        <span className="bg-orange-500 text-white px-4 py-2 rounded-lg">
-          React
-        </span>
-        <span className="bg-orange-500 text-white px-4 py-2 rounded-lg">
-          Tailwind CSS
-        </span>
-        <span className="bg-orange-500 text-white px-4 py-2 rounded-lg">
-          JavaScript
-        </span>
-        <span className="bg-orange-500 text-white px-4 py-2 rounded-lg">
-          Node.js
-        </span>
-      </div>
+      <h2 className={titleStyle}>Skills</h2>
+
+      <h3 className={subtitleStyle}>Development</h3>
+      <h4 className={categoryStyle}>Frontend Languages & Frameworks</h4>
+      {renderSkillItems(frontendLanguagesAndFrameworks)}
+      <h4 className={categoryStyle}>Backend Languages</h4>
+      {renderSkillItems(backendLanguages)}
+      <h4 className={categoryStyle}>Tools</h4>
+      {renderSkillItems(frontendTools)}
+      <h4 className={categoryStyle}>Others</h4>
+      {renderSkillItems(frontendOthers)}
+
+      <h3 className={subtitleStyle}>Infrastructure</h3>
+      <h4 className={categoryStyle}>DevOps & Cloud</h4>
+      {renderSkillItems(devopsTools)}
+      <h4 className={categoryStyle}>Platforms</h4>
+      {renderSkillItems(devopsPlatforms)}
+      <h4 className={categoryStyle}>Monitoring & Analytics</h4>
+      {renderSkillItems(monitoringSkills)}
+      <h4 className={categoryStyle}>Others</h4>
+      {renderSkillItems(devopsOthers)}
+
+      <h3 className={subtitleStyle}>Professional</h3>
+      <h4 className={categoryStyle}>Project Management & Leadership</h4>
+      {renderSkillItems(managementSkills)}
+      <h4 className={categoryStyle}>Communication & Documentation</h4>
+      {renderSkillItems(communicationSkills)}
     </section>
   );
 };

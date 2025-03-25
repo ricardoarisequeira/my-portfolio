@@ -18,7 +18,7 @@ const GradientButton = ({ text, link }) => (
         text-base sm:text-lg md:text-xl lg:text-2xl
         font-semibold
         mb-4
-        bg-gradient-to-r from-blue-600 to-indigo-400
+    bg-gradient-to-r from-blue-400 to-indigo-300
         inline-block
         text-transparent
         bg-clip-text

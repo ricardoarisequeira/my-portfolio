@@ -18,15 +18,11 @@
 }
 
 body {
-  margin: 0;
   background: radial-gradient(at center top, #000 40%, rgb(41, 4, 146) 100%);
   background-attachment: fixed;
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;
-  min-height: calc(var(--vh, 1vh) * 100);
 }
-
-
 
 h1 {
   font-size: 3.2em;
