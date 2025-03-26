@@ -23,7 +23,14 @@ const App = () => {
   }, []);
 
   return (
-    <div className="absolute inset-0 h-full w-full items-center">
+    <div
+      className="absolute inset-0 h-full w-full items-center overflow-y-auto
+  [&::-webkit-scrollbar]:w-1
+  [&::-webkit-scrollbar-track]:bg-blue-800
+  [&::-webkit-scrollbar-thumb]:bg-blue-800/50
+  dark:[&::-webkit-scrollbar-track]:bg-transparent
+  dark:[&::-webkit-scrollbar-thumb]:bg-blue-500"
+    >
       <Hero />
       <div className="my-20" />
       <Experience />
