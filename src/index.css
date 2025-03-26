@@ -18,11 +18,22 @@
 }
 
 body {
-  background: radial-gradient(at center top, #000 40%, rgb(41, 4, 146) 100%);
-  background-attachment: fixed;
   font-family: 'Roboto', sans-serif;
   min-height: 100vh;
+  margin: 0;
 }
+
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: radial-gradient(at center top, #000 65%, rgb(41, 4, 146) 100%);
+  z-index: -1;
+}
+
 
 h1 {
   font-size: 3.2em;

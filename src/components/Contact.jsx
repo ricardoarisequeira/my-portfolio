@@ -6,7 +6,7 @@ const Contact = () => {
     >
       <div className="flex-grow flex flex-col justify-center items-center">
         <h2 className="section-title-style">Get In Touch</h2>
-        <p className="mt-4 text-lg max-w-2xl mx-auto">
+        <p className="mt-4 text-lg max-w-2xl mx-auto text-center">
           Feeling curious about my portfolio? Feel free to reach me out!
         </p>
 

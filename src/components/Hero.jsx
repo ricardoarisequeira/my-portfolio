@@ -8,7 +8,7 @@ const Hero = () => {
         src={profileImage}
         alt="Profile"
         className="
-          w-24 h-24 rounded-lg mb-8
+          w-24 h-24 rounded-3xl mb-8
           sm:w-64 sm:h-64 sm:mb-12
           md:w-80 md:h-80 md:mb-16
           lg:w-96 lg:h-96 lg:mb-20
