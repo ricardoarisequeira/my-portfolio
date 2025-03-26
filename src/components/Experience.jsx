@@ -64,24 +64,6 @@ const ExperienceSection = () => {
     text-center
   `;
 
-  // Title styles with responsive text sizes and gradients
-  const workExperienceTitleStyle = `
-    text-lg sm:text-xl md:text-2xl lg:text-3xl
-    font-semibold
-    flex items-center justify-center gap-2
-    bg-gradient-to-r from-blue-300 to-indigo-100
-    inline-block text-transparent bg-clip-text
-    mt-8 sm:mt-10 md:mt-12
-  `;
-
-  const academicTitleStyle = `
-    text-lg sm:text-xl md:text-2xl lg:text-3xl
-    font-semibold
-    flex items-center justify-center gap-2
-    bg-gradient-to-r from-green-300 to-indigo-100
-    inline-block text-transparent bg-clip-text
-  `;
-
   // Card styles with borders and backgrounds
   const cardStyle = `
     py-4 sm:py-6 md:py-8 px-6
@@ -105,11 +87,7 @@ const ExperienceSection = () => {
         </h2>
 
         {/* Work Experience */}
-        <div className="mb-12">
-          <h3 className={workExperienceTitleStyle}>
-            <Briefcase className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-blue-300" />
-            Work Experience
-          </h3>
+        <div className="mb-12 mt-12">
           <div className="mt-6 space-y-8">
             {experience.map((job, index) => (
               <div key={index} className={cardStyle}>
@@ -152,10 +130,6 @@ const ExperienceSection = () => {
 
         {/* Education */}
         <div>
-          <h3 className={academicTitleStyle}>
-            <GraduationCap className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6 text-green-300" />
-            Education
-          </h3>
           <div className="mt-6 space-y-8">
             {education.map((edu, index) => (
               <div key={index} className={educationCardStyle}>
