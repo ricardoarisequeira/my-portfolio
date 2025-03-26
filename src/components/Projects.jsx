@@ -19,25 +19,25 @@ const Projects = () => {
         <div className="grid grid-cols-1 gap-6">
           {projects.map((project) => (
             <div
-              className="w-full max-w-sm sm:max-w-md md:max-w-lg rounded-lg shadow-lg bg-gradient-to-r from-blue-400/15 to-indigo-300/15 pt-10 px-6 sm:px-10 md:px-10"
+              className="w-full max-w-xs sm:max-w-sm md:max-w-md rounded-lg shadow-lg bg-gradient-to-r from-blue-400/15 to-indigo-300/15 pt-8 px-4 sm:px-8 md:px-10"
               key={project.name}
             >
-              <div className="flex flex-col items-center pb-12">
+              <div className="flex flex-col items-center pb-10">
                 <img
-                  className="w-40 h-40 sm:w-52 sm:h-52 mb-4 shadow-lg rounded-lg"
+                  className="w-32 h-32 sm:w-40 sm:h-40 mb-4 shadow-lg rounded-lg"
                   src={project.logo}
                   alt={`${project.name} logo`}
                 />
 
-                <span className="text-base sm:text-lg text-gray-500 dark:text-gray-400 text-center">
+                <span className="text-sm sm:text-base text-gray-500 dark:text-gray-400 text-center">
                   {project.description}
                 </span>
-                <div className="flex flex-col mt-6 md:mt-8">
-                  <div className="flex mb-3 w-full h-14 bg-gray-600/50 text-gray-400 rounded-xl items-center justify-center cursor-not-allowed px-4 sm:px-8">
-                    <div className="mr-3">
+                <div className="flex flex-col mt-4 md:mt-6 gap-2">
+                  <div className="flex mb-2 w-full h-12 bg-gray-600/50 text-gray-400 rounded-xl items-center justify-center cursor-not-allowed px-3 sm:px-6">
+                    <div className="mr-2">
                       <svg
                         viewBox="0 0 384 512"
-                        width="30"
+                        width="24"
                         className="opacity-50"
                       >
                         <path
@@ -48,16 +48,16 @@ const Projects = () => {
                     </div>
                     <div>
                       <div className="text-xs">Download on the</div>
-                      <div className="text-xl sm:text-2xl font-semibold font-sans -mt-1">
+                      <div className="text-lg sm:text-xl font-semibold font-sans -mt-1">
                         App Store
                       </div>
                     </div>
                   </div>
-                  <div className="flex mb-3 w-full h-14 bg-gray-600/50 text-gray-400 rounded-lg items-center justify-center cursor-not-allowed px-4 sm:px-8">
-                    <div className="mr-3">
+                  <div className="flex mb-2 w-full h-12 bg-gray-600/50 text-gray-400 rounded-lg items-center justify-center cursor-not-allowed px-3 sm:px-6">
+                    <div className="mr-2">
                       <svg
                         viewBox="30 336.7 120.9 129.2"
-                        width="30"
+                        width="24"
                         className="opacity-50"
                       >
                         <path
@@ -80,7 +80,7 @@ const Projects = () => {
                     </div>
                     <div>
                       <div className="text-xs">GET IT ON</div>
-                      <div className="text-xl sm:text-2xl font-semibold font-sans -mt-1">
+                      <div className="text-lg sm:text-xl font-semibold font-sans -mt-1">
                         Google Play
                       </div>
                     </div>
