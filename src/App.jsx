@@ -8,7 +8,7 @@ import Experience from "./components/Experience";
 
 const App = () => {
   const [showButton, setShowButton] = useState(false);
-  const scrollContainerRef = useRef(null); // Reference to the scrollable div
+  const scrollContainerRef = useRef(null);
 
   useEffect(() => {
     const scrollContainer = scrollContainerRef.current;
@@ -31,7 +31,6 @@ const App = () => {
     if (scrollContainer) {
       scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
     } else {
-      // If no scroll container, scroll the window to the top
       window.scrollTo({ top: 0, behavior: "smooth" });
     }
   };
@@ -45,7 +44,7 @@ const App = () => {
   [&::-webkit-scrollbar-thumb]:bg-blue-800/50
   dark:[&::-webkit-scrollbar-track]:bg-transparent
   dark:[&::-webkit-scrollbar-thumb]:bg-blue-500"
-      style={{ height: "100vh", overflowY: "auto" }} // Ensure full height and scrolling behavior
+      style={{ height: "100vh", overflowY: "auto" }}
     >
       <Hero />
       <div className="my-20" />

@@ -1,61 +1,7 @@
 import { Briefcase, GraduationCap } from "lucide-react";
+import content from "../content.json";
 
 const ExperienceSection = () => {
-  // Work experience data
-  const experience = [
-    {
-      title: "Full Stack Software Engineer",
-      company: "freiheit.com technologies",
-      date: "Apr 2020 - Dec 2023",
-      description:
-        "Developed four large-scale, cloud-based products, built mobile apps using Flutter and web platforms with Vue.js, led a team of six engineers in a contract management system, and worked with Go, Kotlin, MongoDB, MySQL, Kubernetes, and CI/CD pipelines.",
-      projects: [
-        {
-          name: "Companion App for EV Vehicles",
-          details:
-            "A core mobile application for the next generation of electric vehicles for Germany’s largest car manufacturer. Built with Flutter for seamless cross-platform performance.",
-        },
-        {
-          name: "Video-On-Demand & Networking Platform",
-          details:
-            "A mobile app providing users with on-demand video streaming and networking capabilities. Ensured optimal UX/UI and smooth performance using Flutter.",
-        },
-        {
-          name: "Omnichannel E-Commerce Platform",
-          details:
-            "Developed a cloud-native online shop for Germany’s third-largest fashion retailer. Worked on both frontend (Vue.js) and backend (Go, Kotlin).",
-        },
-        {
-          name: "Contract Management Back Office",
-          details:
-            "Led a team of six engineers to develop a contract management system for the world’s fourth-largest retailer, focusing on architecture, scalability, and performance.",
-        },
-      ],
-    },
-    {
-      title: "Junior Consultant",
-      company: "Altran",
-      date: "Oct 2016 - Jul 2017",
-      description:
-        "Developed PL/SQL and Oracle Forms & Reports, and worked on an Oracle database platform project.",
-    },
-  ];
-
-  // Education data
-  const education = [
-    {
-      degree: "Master of Science in Computer Science and Engineering",
-      institution: "Instituto Superior Técnico",
-      date: "Sep 2017 - Nov 2019",
-    },
-    {
-      degree: "Bachelor of Science in Computer Science and Engineering",
-      institution: "Instituto Superior Técnico",
-      date: "Sep 2013 - Jul 2016",
-      extras:
-        "Academic Merit Diploma 2014, Academic Excellence Diploma 2015 & 2016",
-    },
-  ];
   // Common styles
   const containerStyle = `
     max-w-5xl 
@@ -80,16 +26,14 @@ const ExperienceSection = () => {
   `;
 
   return (
-    <section id="experience" className="section-style ">
+    <section id="experience" className="section-style">
       <div className={containerStyle}>
-        <h2 className="section-title-style">
-          Professional & Academic Experience
-        </h2>
+        <h2 className="section-title-style">{content.experience.title}</h2>
 
         {/* Work Experience */}
         <div className="mb-12 mt-12">
           <div className="mt-6 space-y-8">
-            {experience.map((job, index) => (
+            {content.experience.workExperience.map((job, index) => (
               <div key={index} className={cardStyle}>
                 <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold">
                   {job.title}
@@ -131,7 +75,7 @@ const ExperienceSection = () => {
         {/* Education */}
         <div>
           <div className="mt-6 space-y-8">
-            {education.map((edu, index) => (
+            {content.experience.education.map((edu, index) => (
               <div key={index} className={educationCardStyle}>
                 <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold">
                   {edu.degree}

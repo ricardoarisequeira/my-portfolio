@@ -1,5 +1,7 @@
+import React from "react";
 import profileImage from "../assets/profile.jpg";
 import GradientButton from "./GradientButton";
+import content from "../content.json";
 
 const Hero = () => {
   return (
@@ -24,7 +26,7 @@ const Hero = () => {
           inline-block text-transparent bg-clip-text
         "
       >
-        Ricardo Sequeira
+        {content.hero.title}
       </h1>
       <p
         className="
@@ -34,7 +36,7 @@ const Hero = () => {
         lg:text-5xl
       "
       >
-        Software Engineer
+        {content.hero.subtitle}
       </p>
 
       <p
@@ -45,10 +47,7 @@ const Hero = () => {
         lg:text-2xl lg:mb-28 lg:max-w-3xl
       "
       >
-        With over 5 years of experience in developing scalable cloud-based
-        solutions, I am dedicated to delivering high-quality, innovative
-        software for impactful projects. Explore my work and see how I can
-        contribute to your team's success.
+        {content.hero.description}
       </p>
 
       <div
