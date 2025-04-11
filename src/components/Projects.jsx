@@ -4,7 +4,12 @@ const projects = [
   {
     name: "hmmm",
     description:
-      "A mobile app built with Flutter and Firebase, set to launch in the first half of 2025.",
+      "A mobile app built with Flutter and Firebase, now available on the App Store and soon on the Google Play Store.",
+    note: (
+      <a href="https://hmmm-app.com" target="_blank" rel="noopener noreferrer">
+        For more details, visit hmmm-app.com.
+      </a>
+    ),
     tech: ["Flutter", "Dart"],
     logo: hmmmLogo,
   },
@@ -33,12 +38,17 @@ const Projects = () => {
                   {project.description}
                 </span>
                 <div className="flex flex-col mt-4 md:mt-6 gap-2">
-                  <div className="flex mb-2 w-full h-12 bg-gray-600/50 text-gray-400 rounded-xl items-center justify-center cursor-not-allowed px-3 sm:px-6">
+                  <a
+                    href="https://apps.apple.com/app/hmmm/id6741868268"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex mb-2 w-full h-12 bg-gray-700 text-white rounded-xl items-center justify-center cursor-pointer px-3 sm:px-6 transition duration-300 hover:bg-gray-800"
+                  >
                     <div className="mr-2">
                       <svg
                         viewBox="0 0 384 512"
                         width="24"
-                        className="opacity-50"
+                        className="opacity-100"
                       >
                         <path
                           fill="currentColor"
@@ -52,7 +62,7 @@ const Projects = () => {
                         App Store
                       </div>
                     </div>
-                  </div>
+                  </a>
                   <div className="flex mb-2 w-full h-12 bg-gray-600/50 text-gray-400 rounded-lg items-center justify-center cursor-not-allowed px-3 sm:px-6">
                     <div className="mr-2">
                       <svg
@@ -84,6 +94,9 @@ const Projects = () => {
                         Google Play
                       </div>
                     </div>
+                  </div>
+                  <div className="text-xs text-gray-500 dark:text-gray-400 text-center">
+                    {project.note}
                   </div>
                 </div>
               </div>

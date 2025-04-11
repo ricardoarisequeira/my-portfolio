@@ -4,7 +4,7 @@ import About from "./components/About";
 import Projects from "./components/Projects";
 import Skills from "./components/Skills";
 import Contact from "./components/Contact";
-import Experience from "./components/Experience";
+import Career from "./components/Career";
 
 const App = () => {
   const [showButton, setShowButton] = useState(false);
@@ -48,11 +48,11 @@ const App = () => {
     >
       <Hero />
       <div className="my-20" />
-      <Experience />
-      <div className="my-20" />
-      <Skills />
+      <Career />
       <div className="my-20" />
       <Projects />
+      <div className="my-20" />
+      <Skills />
       <div className="my-20" />
       <About />
       <div className="my-20" />

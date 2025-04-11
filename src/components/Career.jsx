@@ -1,7 +1,7 @@
 import { Briefcase, GraduationCap } from "lucide-react";
 import content from "../content.json";
 
-const ExperienceSection = () => {
+const CareerSection = () => {
   // Common styles
   const containerStyle = `
     max-w-5xl 
@@ -26,33 +26,36 @@ const ExperienceSection = () => {
   `;
 
   return (
-    <section id="experience" className="section-style">
+    <section id="career" className="section-style">
       <div className={containerStyle}>
-        <h2 className="section-title-style">{content.experience.title}</h2>
+        <h2 className="section-title-style">{content.career.title}</h2>
 
-        {/* Work Experience */}
         <div className="mb-12 mt-12">
           <div className="mt-6 space-y-8">
-            {content.experience.workExperience.map((job, index) => (
-              <div key={index} className={cardStyle}>
+            {content.career.careerTimeline.map((item, index) => (
+              <div
+                key={index}
+                className={item.isEducation ? educationCardStyle : cardStyle}
+              >
                 <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold">
-                  {job.title}
+                  {item.title || item.degree}
                 </h4>
                 <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-400">
-                  {job.company} | {job.date}
+                  {item.local ? `${item.local} | ` : ""}
+                  {item.date}
                 </p>
                 <div className="mt-4 text-gray-300 space-y-1 text-[10px] sm:text-xs md:text-sm max-w-full sm:max-w-md md:max-w-lg lg:max-w-xl mx-auto">
-                  {job.description}
+                  {item.description || ""}
                 </div>
 
                 {/* Highlighted Projects for freiheit.com */}
-                {job.projects && (
+                {item.projects && (
                   <div className="mt-6">
                     <h5 className="text-xs sm:text-sm md:text-base font-semibold flex items-center gap-1 text-green-300/80 justify-center">
                       Key Projects
                     </h5>
                     <ul className="list-disc list-inside mt-1 text-gray-300 space-y-2 w-full max-w-2xl mx-auto sm:px-1 md:px-2">
-                      {job.projects.map((project, i) => (
+                      {item.projects.map((project, i) => (
                         <div key={i} className="mb-1">
                           <div>
                             <span className="font-semibold text-blue-300 text-xs sm:text-sm md:text-base flex items-center gap-1 justify-center">
@@ -71,30 +74,9 @@ const ExperienceSection = () => {
             ))}
           </div>
         </div>
-
-        {/* Education */}
-        <div>
-          <div className="mt-6 space-y-8">
-            {content.experience.education.map((edu, index) => (
-              <div key={index} className={educationCardStyle}>
-                <h4 className="text-base sm:text-lg md:text-xl lg:text-2xl font-semibold">
-                  {edu.degree}
-                </h4>
-                <p className="text-[10px] sm:text-xs md:text-sm lg:text-base text-gray-400">
-                  {edu.institution} | {edu.date}
-                </p>
-                {edu.extras && (
-                  <p className="text-gray-300 text-[10px] sm:text-xs md:text-sm lg:text-base mt-2">
-                    {edu.extras}
-                  </p>
-                )}
-              </div>
-            ))}
-          </div>
-        </div>
       </div>
     </section>
   );
 };
 
-export default ExperienceSection;
+export default CareerSection;

@@ -30,7 +30,7 @@ const Hero = () => {
       </h1>
       <p
         className="
-        text-xl font-bold mb-4 text-white-300/80
+        text-xl font-bold mb-4 text-primary-300/80
         sm:text-3xl sm:mb-6
         md:text-4xl md:mb-8
         lg:text-5xl
@@ -57,9 +57,9 @@ const Hero = () => {
         md:flex-row md:space-y-0 md:space-x-4 
       "
       >
-        <GradientButton text="Experience" link="#experience" />
-        <GradientButton text="Skills" link="#skills" />
+        <GradientButton text="Career" link="#career" />
         <GradientButton text="Projects" link="#projects" />
+        <GradientButton text="Skills" link="#skills" />
         <GradientButton text="About Me" link="#about" />
         <GradientButton text="Contact" link="#contact" />
       </div>

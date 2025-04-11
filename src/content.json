@@ -16,12 +16,32 @@
       "Currently, I'm looking to take the next step in my career by seeking international experience. My girlfriend and I are planning to relocate to the Netherlands for new opportunities and adventures 🇳🇱. I'm excited to immerse myself in a new environment, grow professionally, and contribute to innovative projects in the global tech community."
     ]
   },
-  "experience": {
-    "title": "Professional & Academic Experience",
-    "workExperience": [
+  "career": {
+    "title": "Career Timeline",
+    "careerTimeline": [
+      {
+        "title": "Freelance Software Engineer",
+        "date": "Jan 2025 - Present",
+        "description": "Focused on building my own projects and gaining experience in different areas of software development.",
+        "projects": [
+          {
+            "name": "Personal Portfolio Website",
+            "details": "A personal portfolio website built with React, Tailwind CSS, HTML, and CSS."
+          },
+          {
+            "name": "Hmmm",
+            "details": "A takeaway app developed independently using Flutter and Firebase, already released on the App Store."
+          }
+        ]
+      },
+      {
+        "title": "Sabbatical Year",
+        "date": "Jan 2024 - Dec 2024",
+        "description": "Traveled through Italy, Iceland, Canada, and the US, combining seasonal work with cultural immersion and gaining soft skills in diverse, international settings."
+      },
       {
         "title": "Full Stack Software Engineer",
-        "company": "freiheit.com technologies",
+        "local": "freiheit.com technologies",
         "date": "Apr 2020 - Dec 2023",
         "description": "Developed four large-scale, cloud-based products, built mobile apps using Flutter and web platforms with Vue.js, led a team of six engineers in a contract management system, and worked with Go, Kotlin, MongoDB, MySQL, Kubernetes, and CI/CD pipelines.",
         "projects": [
@@ -44,23 +64,23 @@
         ]
       },
       {
-        "title": "Junior Consultant",
-        "company": "Altran",
-        "date": "Oct 2016 - Jul 2017",
-        "description": "Developed PL/SQL and Oracle Forms & Reports, and worked on an Oracle database platform project."
-      }
-    ],
-    "education": [
-      {
-        "degree": "Master of Science in Computer Science and Engineering",
-        "institution": "Instituto Superior Técnico",
-        "date": "Sep 2017 - Nov 2019"
+        "title": "Master of Science in Computer Science and Engineering",
+        "local": "Instituto Superior Técnico",
+        "date": "Sep 2017 - Nov 2019",
+        "isEducation": true
       },
       {
-        "degree": "Bachelor of Science in Computer Science and Engineering",
-        "institution": "Instituto Superior Técnico",
+        "title": "Junior Consultant",
+        "local": "Altran",
+        "date": "Oct 2016 - Jul 2017",
+        "description": "Developed PL/SQL and Oracle Forms & Reports, and worked on an Oracle database platform project."
+      },
+      {
+        "title": "Bachelor of Science in Computer Science and Engineering",
+        "local": "Instituto Superior Técnico",
         "date": "Sep 2013 - Jul 2016",
-        "extras": "Academic Merit Diploma 2014, Academic Excellence Diploma 2015 & 2016"
+        "description": "Academic Merit Diploma 2014, Academic Excellence Diploma 2015 & 2016",
+        "isEducation": true
       }
     ]
   },
@@ -72,7 +92,7 @@
         "subcategories": {
           "frontendLanguagesAndFrameworks": {
             "title": "Frontend Languages & Frameworks",
-            "items": ["Flutter", "Dart", "HTML", "CSS", "Vue.js"]
+            "items": ["Flutter", "Dart", "HTML", "CSS", "Vue.js", "React", "Tailwind"]
           },
           "backendLanguages": {
             "title": "Backend Languages",
@@ -124,16 +144,6 @@
       }
     }
   },
-  "projects": [
-    {
-      "title": "Project 1",
-      "description": "Description of your awesome project."
-    },
-    {
-      "title": "Project 2",
-      "description": "Another cool project you worked on."
-    }
-  ],
   "contact": {
     "title": "Get In Touch",
     "description": "Feeling curious about my work? Feel free to reach me out!",
