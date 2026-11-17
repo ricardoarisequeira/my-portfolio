@@ -1,63 +1,28 @@
-# My Portfolio
+# ricardoarisequeira.com
 
-Welcome to my personal portfolio repository! This project showcases my work and skills as a software engineer, designed and developed using React and Tailwind CSS.
+My CV as release notes. Each chapter of my career is a version of Ricardo, the side projects are branches, and the history graph is the navigation.
 
-## Overview
+## Run it
 
-This portfolio is a reflection of my journey and expertise in software development. It highlights my professional experiences, educational background, and projects that I have worked on. The application is built with React for a dynamic user interface and styled with Tailwind CSS for a modern and responsive design.
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # client build, server build, then prerender every page into dist/
+npm run preview  # serves dist/ at http://localhost:4173
+```
 
-## Features
+## Adding a version or a branch
 
-- **Responsive Design**: Ensures optimal viewing experience across a wide range of devices.
-- **Interactive UI**: Built with React to provide a seamless and engaging user experience.
-- **Modern Styling**: Utilizes Tailwind CSS for efficient and customizable styling.
+Everything comes from `src/content.json`.
 
-## Getting Started
+- **A new release:** add an entry at the top of `main`. It becomes `/`, the old latest keeps its own URL (`/6.0`) and gets the "old version" notice.
+- **A new branch:** add an entry to `branches` with `forkedFrom` set to the version it started from. The graph gives it a lane and draws the fork.
+- **Changelog lines** are plain strings. `[label](https://…)` makes a link; `[label](/nook)` links inside the site.
+- **Accents** are one of `green`, `yellow`, `magenta`, `sky`, `teal`, `periwinkle`.
 
-To run this project locally, follow these steps:
+## How it fits together
 
-1. **Clone the repository**:
-
-   ```bash
-   git clone https://github.com/yourusername/my-portfolio.git
-   ```
-
-2. **Navigate to the project directory**:
-
-   ```bash
-   cd my-portfolio
-   ```
-
-3. **Install dependencies**:
-
-   ```bash
-   npm install
-   ```
-
-4. **Start the development server**:
-
-   ```bash
-   npm run dev
-   ```
-
-5. **Open your browser** and visit `http://localhost:3000` to view the portfolio.
-
-## Technologies Used
-
-- **React**: JavaScript library for building user interfaces.
-- **Tailwind CSS**: Utility-first CSS framework for styling.
-- **Vite**: Next-generation frontend tooling for fast development.
-
-## Contributing
-
-Contributions are welcome! If you have suggestions or improvements, feel free to open an issue or submit a pull request.
-
-## License
-
-This project is open-source and available under the [MIT License](LICENSE).
-
-## Contact
-
-For any inquiries or feedback, please reach out to me at [ricarisequeira@gmail.com](mailto:ricarisequeira@gmail.com).
-
-Thank you for visiting my portfolio!
+- `src/history.js` turns the data into graph rows, lanes, routes and page titles.
+- `src/router.js` is a small History API router. Versions push history entries; the TL;DR switch (`?tldr`) replaces them.
+- `scripts/prerender.js` writes `dist/<version>/index.html` for every page, plus `404.html`, `_redirects` (Netlify) and `sitemap.xml`.
+- `public/og.png` shows 6.0. Regenerate it when 7.0 ships.

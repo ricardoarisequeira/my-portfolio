@@ -1,100 +1,91 @@
-import React, { useState, useEffect, useRef } from "react";
-import Hero from "./components/Hero";
-import About from "./components/About";
-import Projects from "./components/Projects";
-import Skills from "./components/Skills";
-import Contact from "./components/Contact";
-import Career from "./components/Career";
+import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import Graph from "./components/Graph";
+import { Link } from "./components/Link";
+import Release, { NotFound, Tabs } from "./components/Release";
+import { entries, entryForPath, pageTitle, person } from "./history";
+import { lastNavigation, navigate, useUrl } from "./router";
 
-const App = () => {
-  const [showButton, setShowButton] = useState(false);
-  const scrollContainerRef = useRef(null);
+// useLayoutEffect warns during server rendering; the prerender never runs effects.
+const useIsoLayoutEffect = typeof window === "undefined" ? useEffect : useLayoutEffect;
+
+function isTyping(el) {
+  return el?.closest?.("input, textarea, select, [contenteditable=true]");
+}
+
+export default function App() {
+  const { pathname, tldr } = useUrl();
+  const entry = entryForPath(pathname);
+  const heading = useRef(null);
+  const [announce, setAnnounce] = useState("");
+
+  // Which way the visitor travelled, so the notes slide in from that side.
+  const previousRow = useRef(entry?.row);
+  const direction =
+    entry && previousRow.current !== undefined ? Math.sign(entry.row - previousRow.current) : 0;
 
   useEffect(() => {
-    const scrollContainer = scrollContainerRef.current;
+    if (previousRow.current === entry?.row) return;
+    previousRow.current = entry?.row;
+    document.title = pageTitle(entry);
+    if (!entry) return;
+    setAnnounce(`Ricardo ${entry.badge}, ${entry.name}`);
+    if (!lastNavigation().focus) return;
+    const h = heading.current;
+    const sheetTop = h?.closest("main").getBoundingClientRect().top ?? 0;
+    if (sheetTop < 0) h.closest("main").scrollIntoView({ block: "start" });
+    h?.focus({ preventScroll: true });
+  }, [entry]);
 
-    if (!scrollContainer) return;
+  // The TL;DR state lives on <html> so the prerendered page can set it before
+  // the first paint (see index.html).
+  useIsoLayoutEffect(() => {
+    document.documentElement.classList.toggle("tldr", tldr);
+  }, [tldr]);
 
-    const handleScroll = () => {
-      setShowButton(scrollContainer.scrollTop > 100);
-    };
-
-    scrollContainer.addEventListener("scroll", handleScroll);
-
-    return () => {
-      scrollContainer.removeEventListener("scroll", handleScroll);
-    };
-  }, []);
-
-  const scrollToTop = () => {
-    const scrollContainer = scrollContainerRef.current;
-    if (scrollContainer) {
-      scrollContainer.scrollTo({ top: 0, behavior: "smooth" });
-    } else {
-      window.scrollTo({ top: 0, behavior: "smooth" });
+  // Left and right walk the history from anywhere on the page. Up and down are
+  // left alone so the page still scrolls; inside the graph all four work.
+  useEffect(() => {
+    function onKey(e) {
+      if (e.defaultPrevented || e.altKey || e.metaKey || e.ctrlKey || e.shiftKey) return;
+      if (e.key !== "ArrowLeft" && e.key !== "ArrowRight") return;
+      if (isTyping(e.target) || !entry) return;
+      const next = entries[entry.row + (e.key === "ArrowLeft" ? 1 : -1)];
+      if (next) navigate(next.path, { focus: false });
     }
-  };
+    window.addEventListener("keydown", onKey);
+    return () => window.removeEventListener("keydown", onKey);
+  }, [entry]);
 
   return (
-    <div
-      ref={scrollContainerRef}
-      className="absolute inset-0 h-full w-full items-center
-  [&::-webkit-scrollbar]:w-1
-  [&::-webkit-scrollbar-track]:bg-blue-800
-  [&::-webkit-scrollbar-thumb]:bg-blue-800/50
-  dark:[&::-webkit-scrollbar-track]:bg-transparent
-  dark:[&::-webkit-scrollbar-thumb]:bg-blue-500"
-      style={{ height: "100vh", overflowY: "auto" }}
-    >
-      <Hero />
-      <div className="my-20" />
-      <Career />
-      <div className="my-20" />
-      <Projects />
-      <div className="my-20" />
-      <Skills />
-      <div className="my-20" />
-      <About />
-      <div className="my-20" />
-      <Contact />
-
-      {showButton && (
-        <button
-          onClick={scrollToTop}
-          className="
-            fixed
-            bottom-4 right-4
-            sm:bottom-6 sm:right-6
-            md:bottom-8 md:right-8 
-            lg:bottom-10 lg:right-10
-            p-2 sm:p-3 md:p-4
-            bg-indigo-700/50
-            text-white
-            font-semibold
-            rounded-full
-            shadow-md
-            hover:from-indigo-400 hover:to-blue-600
-            transition-all duration-300
-          "
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            strokeWidth="2"
-            stroke="currentColor"
-            className="w-4 h-4 sm:w-5 sm:h-5 md:w-6 md:h-6"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              d="M5 15l7-7 7 7"
-            />
-          </svg>
-        </button>
-      )}
+    <div className="page">
+      <a className="skip" href="#notes">
+        Skip to the release notes
+      </a>
+      <div className="wrap">
+        <header className="rail">
+          <p className="who">
+            <Link to="/">{person.name}</Link>
+            <span>release history</span>
+          </p>
+          <nav aria-label="Release history">
+            <Graph current={entry} />
+          </nav>
+          <p className="hint">
+            <kbd>←</kbd> <kbd>→</kbd> walk the history
+          </p>
+        </header>
+        <main id="notes" className="notes">
+          <Tabs entry={entry} tldr={tldr} />
+          {entry ? (
+            <Release entry={entry} tldr={tldr} direction={direction} headingRef={heading} />
+          ) : (
+            <NotFound />
+          )}
+        </main>
+      </div>
+      <p className="sr-only" aria-live="polite">
+        {announce}
+      </p>
     </div>
   );
-};
-
-export default App;
+}
