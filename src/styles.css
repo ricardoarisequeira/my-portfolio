@@ -141,6 +141,18 @@ button {
 }
 
 .who {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+.who img {
+  flex: none;
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  object-fit: cover;
+}
+.who p {
   margin: 0;
   font-family: var(--display);
   font-stretch: 112%;
@@ -756,9 +768,10 @@ a.dep:hover small {
   .rail {
     position: static;
   }
-  .who span {
-    display: inline;
-    margin-left: 8px;
+  .who img {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
   }
   .hint {
     display: none;

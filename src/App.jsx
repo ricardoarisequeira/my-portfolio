@@ -2,7 +2,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from "react";
 import Graph from "./components/Graph";
 import { Link } from "./components/Link";
 import Release, { NotFound, Tabs } from "./components/Release";
-import { entries, entryForPath, pageTitle, person } from "./history";
+import { asset, entries, entryForPath, pageTitle, person } from "./history";
 import { lastNavigation, navigate, useUrl } from "./router";
 
 // useLayoutEffect warns during server rendering; the prerender never runs effects.
@@ -63,10 +63,13 @@ export default function App() {
       </a>
       <div className="wrap">
         <header className="rail">
-          <p className="who">
-            <Link to="/">{person.name}</Link>
-            <span>release history</span>
-          </p>
+          <div className="who">
+            <img src={asset(person.photo)} alt="" width="160" height="160" />
+            <p>
+              <Link to="/">{person.name}</Link>
+              <span>release history</span>
+            </p>
+          </div>
           <nav aria-label="Release history">
             <Graph current={entry} />
           </nav>

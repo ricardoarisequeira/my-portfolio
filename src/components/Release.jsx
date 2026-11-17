@@ -213,7 +213,7 @@ export default function Release({ entry, tldr, direction, headingRef }) {
         </Full>
       </div>
       <Pager entry={entry} />
-      {entry.latest && <Request />}
+      <Request />
     </article>
   );
 }
@@ -242,6 +242,7 @@ export function NotFound() {
           <b>{name(latest)}</b>
         </Link>
       </div>
+      <Request />
     </article>
   );
 }
