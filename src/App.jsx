@@ -1,4 +1,5 @@
 import { useEffect, useLayoutEffect, useRef, useState } from "react";
+import Contact from "./components/Contact";
 import Graph from "./components/Graph";
 import { Link } from "./components/Link";
 import Release, { NotFound, Tabs } from "./components/Release";
@@ -64,7 +65,7 @@ export default function App() {
       <div className="wrap">
         <header className="rail">
           <div className="who">
-            <img src={asset(person.photo)} alt="" width="160" height="160" />
+            <img src={asset(person.photo)} alt="" width="200" height="200" />
             <p>
               <Link to="/">{person.name}</Link>
               <span>release history</span>
@@ -76,6 +77,7 @@ export default function App() {
           <p className="hint">
             <kbd>←</kbd> <kbd>→</kbd> walk the history
           </p>
+          <Contact id="request-rail" className="in-rail" />
         </header>
         <main id="notes" className="notes">
           <Tabs entry={entry} tldr={tldr} />
@@ -84,6 +86,7 @@ export default function App() {
           ) : (
             <NotFound />
           )}
+          <Contact id="request-end" className="after-notes" />
         </main>
       </div>
       <p className="sr-only" aria-live="polite">

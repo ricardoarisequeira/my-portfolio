@@ -1,4 +1,4 @@
-import { asset, branchEntries, dependencies, latest, neighbours, person } from "../history";
+import { asset, branchEntries, dependencies, latest, neighbours } from "../history";
 import { setTldr } from "../router";
 import { Inline, Link } from "./Link";
 
@@ -171,25 +171,6 @@ function Pager({ entry }) {
   );
 }
 
-function Request() {
-  return (
-    <section className="request" aria-labelledby="request">
-      <h2 id="request">Request a feature for 7.0</h2>
-      <p>Ideas, questions and bug reports go straight to the maintainer.</p>
-      <div className="contact">
-        <a className="button" href={`mailto:${person.email}`}>
-          {person.email}
-        </a>
-        {person.links.map((l) => (
-          <a key={l.label} href={l.url}>
-            {l.label}
-          </a>
-        ))}
-      </div>
-    </section>
-  );
-}
-
 export default function Release({ entry, tldr, direction, headingRef }) {
   return (
     <article className="sheet" style={accent(entry.accent)}>
@@ -213,7 +194,6 @@ export default function Release({ entry, tldr, direction, headingRef }) {
         </Full>
       </div>
       <Pager entry={entry} />
-      <Request />
     </article>
   );
 }
@@ -242,7 +222,6 @@ export function NotFound() {
           <b>{name(latest)}</b>
         </Link>
       </div>
-      <Request />
     </article>
   );
 }
