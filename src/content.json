@@ -15,6 +15,36 @@
       }
     ]
   },
+  "stackGroups": {
+    "Languages": [
+      "Go",
+      "Kotlin",
+      "Dart",
+      "PL/SQL"
+    ],
+    "Apps and front end": [
+      "Flutter",
+      "Vue.js",
+      "Agora",
+      "Oracle Forms and Reports"
+    ],
+    "Data": [
+      "MongoDB",
+      "MySQL",
+      "Oracle Database",
+      "Firebase"
+    ],
+    "Cloud and infrastructure": [
+      "AWS",
+      "Kubernetes",
+      "Cloud Functions",
+      "CI/CD"
+    ],
+    "Practice": [
+      "Microservices",
+      "Team leadership"
+    ]
+  },
   "main": [
     {
       "version": "6.0",
@@ -43,6 +73,11 @@
             "Will bring up sourdough unprompted."
           ]
         }
+      ],
+      "stack": [
+        "Go",
+        "AWS",
+        "Microservices"
       ]
     },
     {
@@ -114,6 +149,18 @@
             "Picked up Kubernetes, MongoDB, MySQL and CI/CD pipelines along the way."
           ]
         }
+      ],
+      "stack": [
+        "Go",
+        "Kotlin",
+        "Dart",
+        "Flutter",
+        "Vue.js",
+        "MongoDB",
+        "MySQL",
+        "Kubernetes",
+        "CI/CD",
+        "Team leadership"
       ]
     },
     {
@@ -157,6 +204,11 @@
             "Code now has users."
           ]
         }
+      ],
+      "stack": [
+        "PL/SQL",
+        "Oracle Database",
+        "Oracle Forms and Reports"
       ]
     },
     {
@@ -208,6 +260,13 @@
             "Not merged into main. Runs on evenings and weekends."
           ]
         }
+      ],
+      "stack": [
+        "Flutter",
+        "Dart",
+        "Firebase",
+        "Cloud Functions",
+        "Agora"
       ]
     }
   ]

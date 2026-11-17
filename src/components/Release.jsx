@@ -1,4 +1,4 @@
-import { asset, branchEntries, latest, neighbours, person } from "../history";
+import { asset, branchEntries, dependencies, latest, neighbours, person } from "../history";
 import { setTldr } from "../router";
 import { Inline, Link } from "./Link";
 
@@ -61,6 +61,52 @@ function Changelog({ notes }) {
       </ul>
     </section>
   ));
+}
+
+// An older version lists the stack it ran on. The latest release lists
+// everything installed so far, each linked to the version that added it.
+function Stack({ entry }) {
+  if (!entry.latest) {
+    if (!entry.stack) return null;
+    return (
+      <section className="group">
+        <h2 className="tag" style={accent("teal")}>
+          <span>Dependencies</span>
+        </h2>
+        <ul className="deps">
+          {entry.stack.map((name) => (
+            <li key={name} className="dep">
+              {name}
+            </li>
+          ))}
+        </ul>
+      </section>
+    );
+  }
+  return (
+    <section className="group">
+      <h2 className="tag" style={accent("teal")}>
+        <span>Dependencies</span>
+      </h2>
+      <div className="dep-table">
+        <p className="dep-lead">Everything installed so far, and the version that added it.</p>
+        {dependencies.map(({ group, items }) => (
+          <div className="dep-row" key={group}>
+            <h3>{group}</h3>
+            <ul className="deps">
+              {items.map(({ name, since }) => (
+                <li key={name}>
+                  <Link className="dep" to={since.path}>
+                    {name} <small><span className="sr-only">since </span>{since.badge}</small>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+        ))}
+      </div>
+    </section>
+  );
 }
 
 function Parallel() {
@@ -161,6 +207,7 @@ export default function Release({ entry, tldr, direction, headingRef }) {
         </p>
         <Full open={!tldr}>
           <Changelog notes={entry.notes} />
+          <Stack entry={entry} />
           {entry.latest && <Parallel />}
           {entry.photos && <Photos photos={entry.photos} />}
         </Full>
