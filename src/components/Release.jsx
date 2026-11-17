@@ -12,18 +12,6 @@ const ORDER = ["breaking", "added", "changed", "known"];
 
 const accent = (name) => ({ "--accent": `var(--${name})` });
 
-// The last letter of "Ricardo" is the mascot. Awake on the current release,
-// asleep on old versions, glancing sideways from a branch.
-function Face({ mood }) {
-  return (
-    <span className="face" data-mood={mood}>
-      <span className="sr-only">o</span>
-      <i aria-hidden="true" />
-      <i aria-hidden="true" />
-    </span>
-  );
-}
-
 export function Tabs({ entry, tldr }) {
   return (
     <div className="tabs">
@@ -157,15 +145,11 @@ function Request() {
 }
 
 export default function Release({ entry, tldr, direction, headingRef }) {
-  const mood = entry.latest ? "awake" : entry.kind === "branch" ? "aside" : "asleep";
   return (
     <article className="sheet" style={accent(entry.accent)}>
       <Notice entry={entry} key={entry.kind} />
-      <h1 className="title" tabIndex={-1} ref={headingRef} aria-label={`Ricardo ${entry.badge}`}>
-        <span className="word">
-          Ricard
-          <Face mood={mood} />
-        </span>{" "}
+      <h1 className="title" tabIndex={-1} ref={headingRef}>
+        Ricardo{" "}
         <span className={`badge ${entry.kind}`} key={entry.slug}>
           {entry.badge}
         </span>
@@ -200,11 +184,8 @@ function Full({ open, children }) {
 export function NotFound() {
   return (
     <article className="sheet" style={accent("yellow")}>
-      <h1 className="title" tabIndex={-1} aria-label="Ricardo 404">
-        <span className="word">
-          Ricard
-          <Face mood="asleep" />
-        </span>{" "}
+      <h1 className="title" tabIndex={-1}>
+        Ricardo{" "}
         <span className="badge">404</span>
       </h1>
       <p className="sum">This version of Ricardo was never released.</p>

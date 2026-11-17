@@ -281,7 +281,7 @@ button {
   background: var(--green);
   border-color: var(--ink);
   box-shadow: 2px 2px 0 var(--ink);
-  transform: scale(1.3) rotate(-8deg);
+  transform: scale(1.3);
 }
 .graph a:focus-visible {
   outline-offset: 0;
@@ -407,7 +407,7 @@ button {
   box-shadow: 0 0 0 var(--ink);
 }
 
-/* The title: "Ricard" + the face + the version badge */
+/* The title: "Ricardo" + the version badge */
 .title {
   margin: 0;
   display: flex;
@@ -428,61 +428,6 @@ button {
 .title:focus-visible {
   outline: 3px solid var(--ink);
 }
-.word {
-  display: inline-flex;
-  align-items: baseline;
-  white-space: nowrap;
-}
-
-.face {
-  position: relative;
-  display: inline-block;
-  width: 0.6em;
-  height: 0.6em;
-  margin-left: 0.05em;
-  background: var(--green);
-  border: max(3px, 0.04em) solid var(--ink);
-  border-radius: 28%;
-  box-shadow: 0.04em 0.04em 0 var(--ink);
-  transition: background-color 0.35s;
-}
-.face i {
-  position: absolute;
-  top: 30%;
-  width: 0.085em;
-  height: 0.15em;
-  background: var(--ink);
-  border-radius: 0.03em;
-  transition:
-    height 0.3s var(--settle),
-    top 0.3s var(--settle),
-    transform 0.4s var(--spring);
-  animation: blink 0.24s 0.9s;
-}
-.face i:first-of-type {
-  left: 24%;
-}
-.face i:last-of-type {
-  right: 24%;
-}
-.face[data-mood="asleep"] {
-  background: var(--white);
-}
-.face[data-mood="asleep"] i {
-  top: 52%;
-  height: 0.035em;
-  animation: none;
-}
-.face[data-mood="aside"] i {
-  transform: translateX(0.07em);
-}
-@keyframes blink {
-  50% {
-    top: 42%;
-    height: 0.03em;
-  }
-}
-
 .badge {
   display: inline-block;
   padding: 0.04em 0.17em 0.08em;
@@ -492,7 +437,6 @@ button {
   box-shadow: 0.05em 0.05em 0 var(--ink);
   font-size: 0.74em;
   letter-spacing: -0.03em;
-  transform: rotate(-3deg);
   animation: stamp 0.5s var(--spring);
 }
 .badge.branch {
@@ -501,7 +445,7 @@ button {
 @keyframes stamp {
   from {
     opacity: 0;
-    transform: rotate(10deg) scale(1.5);
+    transform: scale(1.4);
   }
   50% {
     opacity: 1;
