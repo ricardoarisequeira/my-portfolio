@@ -1,4 +1,4 @@
-import { asset, branchEntries, dependencies, latest, neighbours, plain } from "../history";
+import { asset, dependencies, latest, neighbours, plain } from "../history";
 import { setTldr } from "../router";
 import { Inline, Link } from "./Link";
 
@@ -107,26 +107,6 @@ function Stack({ entry }) {
   );
 }
 
-function Parallel() {
-  return (
-    <section className="group">
-      <h2 className="tag" style={accent("periwinkle")}>
-        <span>In parallel</span>
-      </h2>
-      <ul className="items branches">
-        {branchEntries.map((b) => (
-          <li key={b.slug}>
-            <Link to={b.path}>Ricardo /{b.slug}</Link>
-            <span>
-              {b.pitch} {b.status}.
-            </span>
-          </li>
-        ))}
-      </ul>
-    </section>
-  );
-}
-
 function Photos({ photos }) {
   return (
     <div className="photos">
@@ -187,7 +167,6 @@ export default function Release({ entry, tldr, direction, headingRef }) {
         <Full open={!tldr}>
           <Changelog notes={entry.notes} />
           <Stack entry={entry} />
-          {entry.latest && <Parallel />}
           {entry.photos && <Photos photos={entry.photos} />}
         </Full>
       </div>
