@@ -21,7 +21,7 @@
       "name": "Hotelspecials",
       "when": "June 2025 to now · Haarlem, Netherlands",
       "accent": "green",
-      "summary": "Backend engineer at Hotelspecials in Haarlem, building Go microservices on AWS, with two apps of my own, [Nook](/nook) and [Hmmm](/hmmm), running on side branches.",
+      "summary": "Backend engineer at Hotelspecials in Haarlem, building Go microservices on AWS, with an app of my own, [Nook](/nook), running on a side branch.",
       "notes": [
         {
           "type": "added",
@@ -207,31 +207,6 @@
           "type": "known",
           "items": [
             "Not merged into main. Runs on evenings and weekends."
-          ]
-        }
-      ]
-    },
-    {
-      "slug": "hmmm",
-      "name": "Hmmm",
-      "forkedFrom": "5.0",
-      "status": "Shipped",
-      "when": "Side branch · forked from 5.0 · shipped",
-      "accent": "yellow",
-      "pitch": "A takeaway app, live on the App Store.",
-      "summary": "A takeaway app I designed, built and shipped on my own.",
-      "notes": [
-        {
-          "type": "added",
-          "items": [
-            "Designed, built and shipped solo. Flutter and Firebase.",
-            "Live on the App Store: [get Hmmm](https://apps.apple.com/app/hmmm/id6741868268)."
-          ]
-        },
-        {
-          "type": "known",
-          "items": [
-            "Named after the noise you make when you can't decide what to order."
           ]
         }
       ]
