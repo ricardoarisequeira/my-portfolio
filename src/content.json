@@ -29,29 +29,54 @@
       "Go",
       "Kotlin",
       "Dart",
-      "PL/SQL"
+      "TypeScript",
+      "PL/SQL",
+      "HTML and CSS"
     ],
     "Apps and front end": [
       "Flutter",
       "Vue.js",
+      "React",
+      "Tailwind",
       "Agora",
-      "Oracle Forms and Reports"
+      "Oracle Forms and Reports",
+      "Responsive design",
+      "UX"
     ],
     "Data": [
       "MongoDB",
       "MySQL",
       "Oracle Database",
-      "Firebase"
+      "Firebase",
+      "Data modelling"
     ],
     "Cloud and infrastructure": [
       "AWS",
+      "Google Cloud",
+      "Azure",
       "Kubernetes",
-      "Cloud Functions",
-      "CI/CD"
+      "Docker",
+      "Terraform",
+      "Cloud Functions"
+    ],
+    "Delivery and monitoring": [
+      "CI/CD",
+      "Jenkins",
+      "GitHub",
+      "Azure DevOps",
+      "Datadog",
+      "Grafana"
     ],
     "Practice": [
       "Microservices",
-      "Team leadership"
+      "REST APIs",
+      "Team leadership",
+      "Agile",
+      "Technical writing"
+    ],
+    "Spoken": [
+      "Portuguese",
+      "English"
     ]
   },
   "main": [
@@ -79,7 +104,8 @@
         {
           "type": "known",
           "items": [
-            "Will bring up sourdough unprompted."
+            "Will bring up sourdough unprompted.",
+            "Off the clock: the garden, the kitchen, and any trail within reach."
           ]
         }
       ],
@@ -94,7 +120,7 @@
       "name": "Sabbatical",
       "when": "2024 · Italy, Iceland, Canada, United States",
       "accent": "sky",
-      "summary": "A year away from the desk, on purpose, working seasonal jobs across four countries.",
+      "summary": "A year away from the desk, on purpose, working seasonal jobs across four countries and coming back with skills no sprint teaches.",
       "notes": [
         {
           "type": "breaking",
@@ -112,7 +138,8 @@
         {
           "type": "changed",
           "items": [
-            "The trip paid for itself, one seasonal job at a time."
+            "The trip paid for itself, one seasonal job at a time.",
+            "Communication, adaptability and resilience, tested in new countries, new teams and new languages every few months."
           ]
         }
       ],
@@ -140,21 +167,22 @@
       "name": "freiheit.com",
       "when": "April 2020 to December 2023 · Full Stack Software Engineer",
       "accent": "magenta",
-      "summary": "Nearly four years building client products at freiheit.com, from mobile apps to back offices, and my first time leading a team.",
+      "summary": "Nearly four years at freiheit.com building four large-scale cloud products for some of Germany's biggest companies, and my first time leading a team.",
       "notes": [
         {
           "type": "added",
           "items": [
-            "A companion app for electric vehicles, for Germany's largest car manufacturer. Flutter.",
-            "A video on demand and networking app. Flutter.",
-            "An omnichannel e-commerce platform for Germany's third-largest fashion retailer. Vue.js in front, Go and Kotlin behind.",
+            "A core mobile app for the next generation of electric vehicles from Germany's largest car manufacturer. Cross-platform, in Flutter.",
+            "A video on demand and networking app in Flutter, built for smooth performance and a polished UX.",
+            "A cloud-native online shop for Germany's third-largest fashion retailer: Vue.js in front, Go and Kotlin behind.",
             "A contract management back office for the world's fourth-largest retailer."
           ]
         },
         {
           "type": "changed",
           "items": [
-            "Started leading: six engineers on the contract management back office.",
+            "Started leading: six engineers on the contract management back office, owning its architecture, scalability and performance.",
+            "Worked close to clients, turning their feedback into the product.",
             "Picked up Kubernetes, MongoDB, MySQL and CI/CD pipelines along the way."
           ]
         }
@@ -182,7 +210,7 @@
         {
           "type": "added",
           "items": [
-            "MSc in Computer Science and Engineering, Instituto Superior Técnico."
+            "MSc in Computer Science and Engineering, Instituto Superior Técnico, one of the top engineering schools in Lisbon."
           ]
         },
         {

@@ -118,18 +118,14 @@ export function ancestry(entry) {
   return lit;
 }
 
-// Every skill installed so far, grouped and ordered as in content.json.
-// Skills that no group lists land in "Other".
+// Every skill installed so far: the groups in content.json, plus anything a
+// version's stack lists that no group does, under "Other".
 export const dependencies = (() => {
-  const installed = new Set(entries.flatMap((e) => e.stack ?? []));
-  const groups = Object.entries(content.stackGroups).map(([group, names]) => ({
-    group,
-    items: names.filter((n) => installed.has(n)),
-  }));
+  const groups = Object.entries(content.stackGroups).map(([group, items]) => ({ group, items }));
   const grouped = new Set(groups.flatMap((g) => g.items));
-  const other = [...installed].filter((n) => !grouped.has(n));
+  const other = [...new Set(entries.flatMap((e) => e.stack ?? []))].filter((n) => !grouped.has(n));
   if (other.length) groups.push({ group: "Other", items: other });
-  return groups.filter((g) => g.items.length);
+  return groups;
 })();
 
 export const plain = (text) => text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
