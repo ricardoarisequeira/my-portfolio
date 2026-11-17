@@ -1,4 +1,4 @@
-import { asset, branchEntries, dependencies, latest, neighbours } from "../history";
+import { asset, branchEntries, dependencies, latest, neighbours, plain } from "../history";
 import { setTldr } from "../router";
 import { Inline, Link } from "./Link";
 
@@ -64,7 +64,7 @@ function Changelog({ notes }) {
 }
 
 // An older version lists the stack it ran on. The latest release lists
-// everything installed so far, each linked to the version that added it.
+// everything installed so far.
 function Stack({ entry }) {
   if (!entry.latest) {
     if (!entry.stack) return null;
@@ -89,16 +89,14 @@ function Stack({ entry }) {
         <span>Dependencies</span>
       </h2>
       <div className="dep-table">
-        <p className="dep-lead">Everything installed so far, and the version that added it.</p>
+        <p className="dep-lead">Everything installed so far.</p>
         {dependencies.map(({ group, items }) => (
           <div className="dep-row" key={group}>
             <h3>{group}</h3>
             <ul className="deps">
-              {items.map(({ name, since }) => (
-                <li key={name}>
-                  <Link className="dep" to={since.path}>
-                    {name} <small><span className="sr-only">since </span>{since.badge}</small>
-                  </Link>
+              {items.map((name) => (
+                <li key={name} className="dep">
+                  {name}
                 </li>
               ))}
             </ul>
@@ -183,7 +181,7 @@ export default function Release({ entry, tldr, direction, headingRef }) {
       </h1>
       <div className="swap" key={entry.slug} data-direction={direction}>
         <p className="when">{entry.when}</p>
-        <p className="sum">
+        <p className={plain(entry.summary).length > 140 ? "sum long" : "sum"}>
           <Inline text={entry.summary} />
         </p>
         <Full open={!tldr}>

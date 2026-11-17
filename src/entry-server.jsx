@@ -14,7 +14,7 @@ export function render(url) {
     description: !entry
       ? "This version of Ricardo was never released."
       : url === "/"
-        ? `The release notes of Ricardo Sequeira, software engineer. ${plain(entry.summary)}`
+        ? `The release notes of Ricardo Sequeira. ${plain(entry.summary)}`
         : plain(entry.summary),
     canonical: entry?.path ?? null,
   };

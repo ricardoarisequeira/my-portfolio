@@ -118,33 +118,18 @@ export function ancestry(entry) {
   return lit;
 }
 
-// Every skill installed so far, grouped as in content.json, each pointing at
-// the version that first lists it in its stack. Main is searched oldest first,
-// then the branches, so the earliest sighting wins.
+// Every skill installed so far, grouped and ordered as in content.json.
+// Skills that no group lists land in "Other".
 export const dependencies = (() => {
-  const order = Object.entries(content.stackGroups).flatMap(([group, names]) =>
-    names.map((name) => [name, group])
-  );
-  const groupOf = new Map(order);
-  const rank = new Map(order.map(([name], i) => [name, i]));
-
-  const since = new Map();
-  for (const e of [...mainEntries].reverse().concat(branchEntries)) {
-    for (const name of e.stack ?? []) if (!since.has(name)) since.set(name, e);
-  }
-
-  const groups = new Map(Object.keys(content.stackGroups).map((g) => [g, []]));
-  for (const [name, entry] of since) {
-    const group = groupOf.get(name) ?? "Other";
-    if (!groups.has(group)) groups.set(group, []);
-    groups.get(group).push({ name, since: entry });
-  }
-  return [...groups]
-    .filter(([, items]) => items.length)
-    .map(([group, items]) => ({
-      group,
-      items: items.sort((a, b) => (rank.get(a.name) ?? Infinity) - (rank.get(b.name) ?? Infinity)),
-    }));
+  const installed = new Set(entries.flatMap((e) => e.stack ?? []));
+  const groups = Object.entries(content.stackGroups).map(([group, names]) => ({
+    group,
+    items: names.filter((n) => installed.has(n)),
+  }));
+  const grouped = new Set(groups.flatMap((g) => g.items));
+  const other = [...installed].filter((n) => !grouped.has(n));
+  if (other.length) groups.push({ group: "Other", items: other });
+  return groups.filter((g) => g.items.length);
 })();
 
 export const plain = (text) => text.replace(/\[([^\]]+)\]\([^)]+\)/g, "$1");
